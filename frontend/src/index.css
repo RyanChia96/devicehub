@@ -1,0 +1,207 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * DeviceHub tokens, ported from the prototype's design system.
+ * Light follows Folk (white canvas, light-grey sidebar, ink-black primary).
+ * Dark follows Better Stack (navy surfaces, indigo primary). Light only for now;
+ * add the `dark` class on <html> to switch.
+ *
+ * Shape rule: buttons are full pill; cards, tiles and panels 12px; inputs 8px.
+ * Colour rule: one accent per theme. Status colours only carry state.
+ */
+:root {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-heading: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  --radius: 0.75rem;
+
+  --background: #ffffff;
+  --foreground: #1b1b1b;
+  --card: #ffffff;
+  --card-foreground: #1b1b1b;
+  --popover: #ffffff;
+  --popover-foreground: #1b1b1b;
+  --primary: #1b1b1b;
+  --primary-foreground: #ffffff;
+  --secondary: #f1f1ef;
+  --secondary-foreground: #1b1b1b;
+  --muted: #f1f1ef;
+  --muted-foreground: #686865;
+  --accent: #f1f1ef;
+  --accent-foreground: #1b1b1b;
+  --destructive: #c02c47;
+  --destructive-foreground: #c02c47;
+  --border: #e8e8e5;
+  --input: #cdcdc9;
+  --ring: #1b1b1b;
+
+  --success: #1c7348;
+  --success-foreground: #1c7348;
+  --warning: #8a5600;
+  --warning-foreground: #8a5600;
+  --info: #2d58b0;
+  --info-foreground: #2d58b0;
+
+  --chart-1: #1b1b1b;
+  --chart-2: #a8a8a4;
+
+  --sidebar: #f9f9f8;
+  --sidebar-foreground: #1b1b1b;
+  --sidebar-muted: #5e5e5b;
+  --sidebar-primary: #1b1b1b;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #ebebe9;
+  --sidebar-accent-foreground: #1b1b1b;
+  --sidebar-border: #e8e8e5;
+  --sidebar-ring: #1b1b1b;
+
+  --scrim: rgb(20 20 20 / 0.32);
+  --shadow-card: 0 1px 2px rgb(0 0 0 / 0.05);
+  --shadow-modal: 0 16px 40px rgb(0 0 0 / 0.12), 0 0 0 1px rgb(0 0 0 / 0.06);
+}
+
+.dark {
+  --background: #1f2432;
+  --foreground: #e9ebf1;
+  --card: #232a39;
+  --card-foreground: #e9ebf1;
+  --popover: #232a39;
+  --popover-foreground: #e9ebf1;
+  --primary: #5b5fe0;
+  --primary-foreground: #ffffff;
+  --secondary: #2a3243;
+  --secondary-foreground: #e9ebf1;
+  --muted: #2a3243;
+  --muted-foreground: #9aa1b3;
+  --accent: #2a3243;
+  --accent-foreground: #e9ebf1;
+  --destructive: #f58a98;
+  --destructive-foreground: #f58a98;
+  --border: #2f3749;
+  --input: #475169;
+  --ring: #9599ff;
+
+  --success: #5fd39b;
+  --success-foreground: #5fd39b;
+  --warning: #f0c062;
+  --warning-foreground: #f0c062;
+  --info: #8db6ff;
+  --info-foreground: #8db6ff;
+
+  --chart-1: #5b5fe0;
+  --chart-2: #475169;
+
+  --sidebar: #1b1f2d;
+  --sidebar-foreground: #e9ebf1;
+  --sidebar-muted: #9aa1b3;
+  --sidebar-primary: #5b5fe0;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #2a3142;
+  --sidebar-accent-foreground: #e9ebf1;
+  --sidebar-border: #2f3749;
+  --sidebar-ring: #9599ff;
+
+  --scrim: rgb(12 15 22 / 0.7);
+  --shadow-card: 0 1px 2px rgb(0 0 0 / 0.35);
+  --shadow-modal: 0 16px 40px rgb(0 0 0 / 0.5), 0 0 0 1px rgb(255 255 255 / 0.04);
+}
+
+button,
+[role="button"],
+a[href] {
+  cursor: pointer;
+}
+
+@theme inline {
+  --font-heading: var(--font-heading);
+  --font-mono: var(--font-mono);
+  --font-sans: var(--font-sans);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-muted: var(--sidebar-muted);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar: var(--sidebar);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-ring: var(--ring);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-input: var(--input);
+  --color-foreground: var(--foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-border: var(--border);
+  --color-background: var(--background);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-warning: var(--warning);
+  --color-success-foreground: var(--success-foreground);
+  --color-success: var(--success);
+  --color-info-foreground: var(--info-foreground);
+  --color-info: var(--info);
+  --color-scrim: var(--scrim);
+  --radius-sm: calc(var(--radius) - 6px);
+  --radius-md: calc(var(--radius) - 4px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --shadow-card: var(--shadow-card);
+  --shadow-modal: var(--shadow-modal);
+}
+
+@layer base {
+  html {
+    color-scheme: light;
+  }
+
+  html.dark {
+    color-scheme: dark;
+  }
+
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  code,
+  kbd,
+  samp,
+  pre {
+    @apply font-mono;
+  }
+}
+
+/* Numbers line up in tables, totals and receipts. */
+@utility tabular {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+@keyframes snack-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}

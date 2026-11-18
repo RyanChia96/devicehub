@@ -1,0 +1,53 @@
+{
+  "app": {
+    "name": "DeviceHub"
+  },
+  "nav": {
+    "sections": {
+      "main": "",
+      "stock": "Stock",
+      "sales": "Sales",
+      "einvoice": "E-invoice",
+      "settings": "Settings"
+    },
+    "dashboard": "Dashboard",
+    "inventory": "Inventory",
+    "stockSummary": "Stock summary",
+    "receiveStock": "Receive stock",
+    "refurbishment": "Refurbishment",
+    "salesReports": "Sales reports",
+    "commission": "Commission",
+    "invoices": "Invoices",
+    "consolidated": "Consolidated",
+    "selfBilled": "Self-billed",
+    "sellerProfile": "Seller profile",
+    "users": "Users",
+    "signOut": "Sign out",
+    "collapse": "Collapse sidebar",
+    "expand": "Expand sidebar"
+  },
+  "routes": {
+    "dashboard": "Dashboard",
+    "inventory": "Inventory",
+    "stockSummary": "Stock summary",
+    "receiveStock": "Receive stock",
+    "refurbishment": "Refurbishment",
+    "salesReports": "Sales reports",
+    "commission": "Commission",
+    "invoices": "Invoices",
+    "consolidated": "Consolidated e-invoices",
+    "selfBilled": "Self-billed e-invoices",
+    "sellerProfile": "Seller profile",
+    "users": "Users"
+  },
+  "table": {
+    "noRows": "No rows",
+    "showing": "Showing {{from}}-{{to}} of {{total}}",
+    "rowsPerPage": "Rows per page",
+    "pageOf": "Page {{page}} / {{pageCount}}"
+  },
+  "common": {
+    "previous": "Previous",
+    "next": "Next"
+  }
+}
